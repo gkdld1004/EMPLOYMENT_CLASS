@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz02.html - 풀이</title>
+    <style>
+        * {
+            user-select: none;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        th, td {
+            padding: 5px;
+        }
+        .hidden {
+            display: none; 
+        }
+        .filterBox {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>quiz02.html (풀이) - 이름, 나이, 성별, 전화번호 (다중선택)</h1>
+    <hr>
+    <div class="filterBox">
+        <label><input type="checkbox" id="age10">10대</label>
+        <label><input type="checkbox" id="age20">20대</label>
+        <label><input type="checkbox" id="age30">30대</label>
+        <label><input type="checkbox" id="age40">40대</label>
+    </div>
+
+    <!-- 최소 10명의 데이터를 작성하세요. 다양한 연령과 성별. 데이터는 가상도 무관 -->
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>전화번호</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <th>이지은</th>
+                <th>28</th>
+                <th>여성</th>
+                <th>010-1234-1234</th>
+            </tr>
+            <tr>
+                <th>김지은</th>
+                <th>38</th>
+                <th>여성</th>
+                <th>010-2222-2222</th>
+            </tr>
+            <tr>
+                <th>박지은</th>
+                <th>48</th>
+                <th>남성</th>
+                <th>010-3333-3333</th>
+            </tr>
+            <tr>
+                <th>나지은</th>
+                <th>18</th>
+                <th>여성</th>
+                <th>010-4444-4444</th>
+            </tr>
+            <tr>
+                <th>홍길동</th>
+                <th>22</th>
+                <th>남성</th>
+                <th>010-5555-5555</th>
+            </tr>
+            <tr>
+                <th>고길동</th>
+                <th>23</th>
+                <th>남성</th>
+                <th>010-6666-6666</th>
+            </tr>
+            <tr>
+                <th>김길동</th>
+                <th>35</th>
+                <th>여성</th>
+                <th>010-7777-7777</th>
+            </tr>
+            <tr>
+                <th>박길동</th>
+                <th>19</th>
+                <th>여성</th>
+                <th>010-8888-8888</th>
+            </tr>
+            <tr>
+                <th>최길동</th>
+                <th>30</th>
+                <th>남성</th>
+                <th>010-9999-9999</th>
+            </tr>
+            <tr>
+                <th>추지은</th>
+                <th>10</th>
+                <th>여성</th>
+                <th>010-0000-0000</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const filterBox = document.querySelector('.filterBox');
+        const boxList = filterBox.querySelectorAll('input[type="checkBox"]');
+        const trList = document.querySelectorAll('tbody > tr');
+
+        const clickHandler = (event) => {
+            // 1) 체크박스 클릭했을 때, 클릭된 체크박스만 작동하는가 ?         
+            // event.target
+            //    지금 현재 체크되어있는 모든 체크박스가 출력에 관여하는가 ?    
+            // boxList에서 check된 항목만 가져올지 => checkedList
+
+            // const checkedList = boxList.filter(box => {return box.checked});
+            // ↑ 이렇게 쓰고 싶은데, boxList는 자료형이 NodeList라서 filter() 함수가 없다
+
+            // filter() 는 전체 목록 중에서 내가 원하는 조건에 맞는 요소만 별도로 묶어서 반환
+            // 대부분의 HTML 태그의 속성은 문자열 형식으로 값을 가진다
+            // checked와 같은 true/false 형식으로 가지는 경우도 있다
+
+            const boxArr = Array.from(boxList);
+            // NodeList의 자료형을 Array로 변환
+
+            const checkedArr = boxArr.filter(box => { return box.checked });
+            // 이벤트가 발생한 시점에서 체크된 체크박스만 checkedArr에 저장한다
+
+            // 2) 모든 박스가 선택되었거나, 모두 해제되었다면 전체를 띄워주면 된다
+            const same = checkedArr.length === 0 || checkedArr.length === boxList.length;   // 가급적 상수는 적게 사용
+            
+            if(same) {
+                trList.forEach(tr => tr.classList.remove('hidden'));
+                return;
+            }
+            
+            // 3) table의 데이터(출력)와 checkedArr(입력)의 조건을 비교하여 일치하는 데이터만 보여준다
+            //    (나머지는 숨겨놓는다)
+
+            trList.forEach(tr => tr.className = 'hidden');      // 속성에 문자열 값을 대입하거나 
+            trList.forEach(tr => tr.classList.add('hidden'));   // 함수로 처리하기
+
+            for(let i = 0; i < trList.length; i++){             // 출력 데이터 (사용자에게 보여줄 결과)
+                const tr = trList[i];
+                const trAge = tr.children[1].innerText.charAt(0);
+                for(let j = 0; j < checkedArr.length; j++){     // 입력 데이터 (사용자 요청)
+                    const boxId = checkedArr[j].id.charAt(3);
+                    if(trAge === boxId){
+                        tr.classList.remove('hidden');
+                    }
+                }
+            }
+        };
+
+        boxList.forEach(checkBox => checkBox.onclick = clickHandler);
+        // boxList[0].onclick = clickHandler;
+        // boxList[1].onclick = clickHandler;
+        // boxList[2].onclick = clickHandler;
+        // boxList[3].onclick = clickHandler;
+
+    </script>
+
+</body>
+</html>

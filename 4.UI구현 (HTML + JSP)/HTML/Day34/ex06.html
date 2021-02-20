@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06.html</title>
+</head>
+<body>
+    
+    <p><input type="text" name="name" id="name"></p>
+    <p><input type="number" name="age" id="age"></p>
+    <p><button id="btn">입력</button></p>
+    <div class="result"></div>
+
+    <script type="text/javascript">
+
+        const name = document.querySelector('#name');
+        const age = document.querySelector('#age');
+        const btn = document.querySelector('#btn');
+        const resultDiv = document.querySelector('.result');
+
+        // console.log({'btn' : btn});
+        // {} : 자바스크립트 객체를 출력한다
+        // '변수이름' : 변수값 
+
+        const btnHandler = (event) => {     // 함수를 만들어서 변수에 저장한다
+            console.log(event);
+            if(name.value == '' || age.value == ''){
+                alert('모든 값을 입력해주세요 !');
+                return;
+            }
+            // 클릭한 시점에서 값을 가져와야 함
+            const str = `${name.value}님은 ${age.value}살입니다.`;
+            resultDiv.innerText = str;
+        }
+
+        btn.onclick = btnHandler;
+    </script>
+
+</body>
+</html>

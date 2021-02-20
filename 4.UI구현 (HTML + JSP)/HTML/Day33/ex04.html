@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html - z-index</title>
+    <style>
+        .red, .blue { width: 480px; height: 320px;}
+        .red { 
+            background-color: red; 
+            position: absolute;
+            z-index: -1;
+            /* opacity: 0.5;   영역의 투명도 */
+        }
+        .blue { 
+            background-color: blue;
+            position: absolute;     /* 상위 요소 중 static이 아닌 요소를 기준 (없으면 body) */
+            top: 150px;
+            left: 150px;
+            z-index: 0;
+            /* opacity: 0.5; */
+        }
+        #btn {
+            position: absolute;
+            top: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="red"></div>
+    <div class="blue"></div>
+    <button id="btn">전환</button>
+
+    <script type="text/javascript">
+        const red = document.querySelector('.red');
+        const btn = document.querySelector('#btn');
+
+        red.style.zIndex = 1;       /* CSS 속성에서 -가 들어가는 경우 CamelCase로 변경한다 */
+
+        btn.onclick = () => {
+            red.style.zIndex *= -1
+        }
+
+        /*
+            <Button onAction="#click">
+        */
+    </script>
+
+
+</body>
+</html>

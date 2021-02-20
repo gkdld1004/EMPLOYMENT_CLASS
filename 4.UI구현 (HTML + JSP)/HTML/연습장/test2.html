@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2.html</title>
+    <style>
+        .box1, .box2 {
+            width: 500px;
+            height: 300px;
+        }
+        .box1 {
+            background-color: darkgoldenrod;
+            position: absolute;
+            z-index: -1;
+        }
+        .box2 {
+            background-color: darkgreen;
+            position: absolute;
+            top: 200px;
+            left: 200px;    
+            z-index: 0;
+        }
+        #btn {
+            position: absolute;
+            top: 550px;
+            left: 350px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <button id="btn">클릭</button>
+
+    <script type="text/javascript">
+        const box1 = document.querySelector('.box1');
+        const btn = document.querySelector('#btn');
+
+        box1.style.zIndex = 1;
+
+        btn.onclick = () => {
+            box1.style.zIndex *= -1
+        }
+
+    </script>
+
+</body>
+</html>

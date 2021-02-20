@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz01.html</title>
+    <style>
+        * {
+            user-select: none;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        th, td {
+            padding: 5px;
+        }
+        .hidden {
+            display: none; 
+        }
+        .filterBox {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>quiz01.html - 이름, 나이, 성별, 전화번호 (단일선택)</h1>
+    <hr>
+    <div class="filterBox">
+        <label><input type="radio" name="filter" id="age10">10대</label>
+        <label><input type="radio" name="filter" id="age20">20대</label>
+        <label><input type="radio" name="filter" id="age30">30대</label>
+        <label><input type="radio" name="filter" id="age40">40대</label>
+    </div>
+
+    <!-- 최소 10명의 데이터를 작성하세요. 다양한 연령과 성별. 데이터는 가상도 무관 -->
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>전화번호</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <th>이지은</th>
+                <th>28</th>
+                <th>여성</th>
+                <th>010-1234-1234</th>
+            </tr>
+            <tr>
+                <th>김지은</th>
+                <th>38</th>
+                <th>여성</th>
+                <th>010-2222-2222</th>
+            </tr>
+            <tr>
+                <th>박지은</th>
+                <th>48</th>
+                <th>남성</th>
+                <th>010-3333-3333</th>
+            </tr>
+            <tr>
+                <th>나지은</th>
+                <th>18</th>
+                <th>여성</th>
+                <th>010-4444-4444</th>
+            </tr>
+            <tr>
+                <th>홍길동</th>
+                <th>22</th>
+                <th>남성</th>
+                <th>010-5555-5555</th>
+            </tr>
+            <tr>
+                <th>고길동</th>
+                <th>23</th>
+                <th>남성</th>
+                <th>010-6666-6666</th>
+            </tr>
+            <tr>
+                <th>김길동</th>
+                <th>35</th>
+                <th>여성</th>
+                <th>010-7777-7777</th>
+            </tr>
+            <tr>
+                <th>박길동</th>
+                <th>19</th>
+                <th>여성</th>
+                <th>010-8888-8888</th>
+            </tr>
+            <tr>
+                <th>최길동</th>
+                <th>30</th>
+                <th>남성</th>
+                <th>010-9999-9999</th>
+            </tr>
+            <tr>
+                <th>추지은</th>
+                <th>10</th>
+                <th>여성</th>
+                <th>010-0000-0000</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 1) 입력과 출력에 관계된 요소를 가져오기
+        const filterBox = document.querySelector('.filterBox');
+        const boxList = filterBox.querySelectorAll('input[type="radio"]');  // 내가 원하는 요소 안에서 querySelector를 사용할 수 있다
+        // 문서 내의 모든 input이 아니라, 특정 div내부의 input만 가져올 수도 있다
+        const trList = document.querySelectorAll('tbody > tr');
+
+        // 2) 이벤트 함수
+        const clickHandler = (event) => {
+            const checkedId = event.target.id;      // 클릭된 radio의 id (A : 사용자의 요청)
+            // console.log(checkedId);
+
+            trList.forEach((tr) => {    // forEach 안에 있으니 tr : trList[i];
+                const trAge = tr.children[1].innerText;     // 각 줄의 나이 항목 문자열 (B : 데이터의 조건)
+                // console.log(trAge);
+                const flag = trAge.charAt(0) === checkedId.charAt(3);       // A와 B가 일치하는가
+                // console.log(flag);
+                
+                // tr.className = flag ? '' : 'hidden';
+
+                if(flag){
+                    tr.classList.remove('hidden');      // 일치하면 숨기지 않는다
+                }
+                else{
+                    tr.classList.add('hidden');         // 일치하지 않으면 숨긴다
+                }
+            });
+
+            // for(let i = 0; i < trList.length; i++){
+            //     const tr = trList[i];
+            //     const trAge = tr.children[1].innerText;     
+            //     const flag = trAge.charAt(0) === checkedId.charAt(3);    // boolean
+            //     tr.className = flag ? '' : 'hidden';  
+            // }
+        }
+
+        // 3) 이벤트 핸들러를 이벤트 소스에 연결
+        boxList.forEach(radio => radio.onclick = clickHandler);
+    </script>
+
+</body>
+</html>

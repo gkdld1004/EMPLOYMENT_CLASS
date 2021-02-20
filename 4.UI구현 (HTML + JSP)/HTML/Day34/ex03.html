@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        body{
+            width: 100%;
+            height: 95vh;   /* 전체화면에서 차지하는 비율? */
+            overflow-x: hidden;
+        }
+        .wrap {
+            display: flex;
+            width: 100%;
+            height: 480px;
+        }
+        .img {
+            width: 320px;
+            height: 480px;
+            background-image: url('js_bool.png');
+            background-size: 100%;
+        }
+        .text {
+            width: 320px;
+            border: 5px solid red;
+            padding: 5px;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="img"></div>
+        <div class="text"></div>
+    </div>
+
+    <script>
+        const bo1 = (0 == '0');
+        const bo2 = (0 == []);
+        const bo3 = ('0' == []);
+
+        // 문자열 서식을 작성할 때, `` 문자열을 작성하고 값이 들어갈 위치에 ${변수이름}
+        const text = ` 0 == '0' : ${bo1}
+ 0 ==  [] : ${bo2}
+'0' == [] : ${bo3}`;
+
+        // const text2 = "0 == '0' : " + bo1 + "\n0 == []  : " + bo2 + "\n";
+
+        console.log(text);
+        // console.log(text2);
+        
+        const textDiv = document.querySelector('div.text');
+        textDiv.innerText = text;           // 글자만
+        textDiv.innerHTML += '<br><br>';    // HTML 태그
+
+        const num1 = 10;        // number
+        const num2 = '20';      // string, 문자열 글자가 정수로 구성되었다면 +를 붙여서 숫자화 가능
+        const num3 = num1 + (+num2);        // num2 앞에 +기호를 적거나, 빼보자
+        const num4 = num1 + num2;        
+        textDiv.innerText += `${num1} + ${num2} = ${num3} (+붙)
+        ${num1} + ${num2} = ${num4} (+안붙)`;
+    </script>
+
+</body>
+</html>

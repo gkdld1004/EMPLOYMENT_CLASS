@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>더쿠</title>
+    <style>
+        ul, div, li, span, input {
+            margin: 0; padding: 0; border: 0;
+        }
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            font-size: 9pt;
+        }
+        .content {
+            width: 1200px;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;     /* 사이에 공간을 두고, 좌우로 벌려서 정렬 */
+        }
+        header, .favorite, main {
+            margin: auto;
+        }
+        header {
+            background-color: #375472;
+            height: 55px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .left, header .right {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            padding: 5px;
+            margin: 5px;
+            line-height: 12px;
+            font-family: 'Comic Sans MS';
+            font-size: 13pt;
+            background-color: white;
+            color: #375472;
+            border-radius: 5px;
+            text-align: center;
+        }
+        nav > ul {
+            list-style: none;
+            display: flex;
+            font-size: 9pt;
+        }
+        nav > ul > li {
+            margin: 10px;
+            padding: 5px;
+            border-radius: 10px;
+            height: 30px;
+            line-height: 30px;
+        }
+        nav > ul > li:hover {
+            cursor: pointer;
+            background-color: white;
+            color: #375472;
+        }
+        .favorite {
+            padding: 5px;
+            color: white;
+            background-color: #6c839f;
+        }
+        .favorite .content {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .search {
+            background-color: #6c839f;
+            padding: 2px;
+            height: 25px;
+        }
+        .search > input {
+            padding: 5px;
+            all: none;
+            background-color: #6c839f;
+        }
+        .search > input:focus {
+            width: 300px;
+        }
+        .search > input::placeholder {
+            color: white;
+        }
+        .pointer {
+            cursor: pointer;
+        }
+        main {
+            display: flex;
+            flex-flow: row;
+        }
+        table {
+            border: 1px solid #6c839f;
+            margin: 20px auto;
+            border-collapse: collapse;  /* cellspacing="0" */
+        }
+        th, td {
+            width: 165px;
+            border: 1px solid silver;
+            background-color: #375472;
+            color: white;
+            text-align: left;
+            padding: 5px;
+            font-weight: unset;
+            font-size: 10pt;
+        }
+        td {
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #375472;
+            color: black;
+            vertical-align: top;        /* 내용이 위쪽에서 정렬되도록 */
+        }
+        td > a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        aside {
+            position: fixed;
+            top: 100px;
+            right: 13%;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #375472;
+            height: 100px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer > .logo2 {
+            margin-right: 20px;
+        }
+        .login {
+            cursor: pointer;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="content">
+            <div class="left">
+                <div class="logo">
+                    the<br>qoo
+                </div>
+                <nav>
+                    <ul>
+                        <li>전체</li>
+                        <li>HOT</li>
+                        <li>스퀘어</li>
+                        <li>뷰티</li>
+                        <li>일상토크</li>
+                        <li>케이돌토크</li>
+                        <li>드영배</li>
+                        <li>재팬</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="right">
+                <div class="search">
+                    <img src="search.png" width="25px">
+                    <input type="text" name="search" placeholder="게시판 검색">
+                </div>
+                <div class="login">
+                    로그인
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="favorite">
+        <div class="content">
+            <span class="pointer">내 즐겨찾기 관리</span>
+        </div>
+    </div>
+    <main>
+        <div class="content">
+            <section>
+                <table>
+                    <tr>
+                        <th>신규카테</th>
+                        <th>더쿠</th>
+                        <th>유머/이슈/정보</th>
+                        <th>생활</th>
+                        <th>국내연애</th>
+                        <th>해외연애</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="">공지</a>
+                            <a href="">문의/신고</a>
+                            <a href="">문제보고</a>
+                            <a href="">테스트/메모장</a>
+                        </td>
+                        <td>
+                            <a href="">전체</a>
+                            <a href="">HOT</a>
+                            <a href="">스퀘어</a>
+                            <a href="">*코로나19</a>
+                        </td>
+                        <td>
+                            <a href="">일상토크</a>
+                            <a href="">해외거주토크</a>
+                            <a href="">후기</a>
+                            <a href="">공부</a>
+                            <a href="">자취</a>
+                            <a href="">직장인</a>
+                            <a href="">연애</a>
+                            <a href="">자동차/대중교통</a>
+                        </td>
+                        <td>
+                            <a href="">케이돌토크</a>
+                            <a href="">힙합</a>
+                            <a href="">드영배</a>
+                            <a href="">-그 남자의 기억법</a>
+                            <a href="">-더 킹 : 영원의 군주</a>
+                            <a href="">-사랑의 불시착</a>
+                            <a href="">-사이코지만 괜찮아</a>
+                            <a href="">-스토브리그</a>
+                            <a href="">-어쩌다 발견한 하루</a>
+                            <a href="">영화</a>
+                            <a href="">예능/버라이어티</a>
+                            <a href="">-프로듀스48</a>
+                            <a href="">-프로듀스101 시즌2</a>
+                            <a href="">-팬텀싱어</a>
+                        </td>
+                        <td>
+                            <a href="">재팬</a>
+                            <a href="">일드영배</a>
+                            <a href="">차이나</a>
+                            <a href="">웨스트(WEST)</a>
+                            <a href="">태국</a>
+                            <a href="">WORLD</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>스포츠</th>
+                        <th>취미</th>
+                        <th>뷰티/패션</th>
+                        <th>음식</th>
+                        <th>컬쳐</th>
+                        <th>서브컬쳐</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="">스포츠종합</a>
+                            <a href="">국내야구</a>
+                            <a href="">해외야구</a>
+                            <a href="">국내축구</a>
+                            <a href="">해외축구</a>
+                            <a href="">배구</a>
+                            <a href="">피겨스케이팅</a>
+                            <a href="">F1</a>
+                            <a href="">아시안게임</a>
+                        </td>
+                        <td>
+                            <a href="">공포</a>
+                            <a href="">디자인</a>
+                            <a href="">동식물</a>
+                            <a href="">뮤직</a>
+                            <a href="">여행</a>
+                            <a href="">더꾸공방</a>
+                            <a href="">아이돌 솜뭉치</a>
+                            <a href="">IT/전자기기/음향</a>
+                            <a href="">마블</a>
+                            <a href="">해리포터</a>
+                        </td>
+                        <td>
+                            <a href="">뷰티</a>
+                            <a href="">패션</a>
+                            <a href="">다이어트</a>
+                            <a href="">성형</a>
+                        </td>
+                        <td>
+                            <a href="">음식먹방</a>
+                            <a href="">요리</a>
+                        </td>
+                        <td>
+                            <a href="">컬쳐</a>
+                            <a href="">연극/뮤지컬</a>
+                            <a href="">도서</a>
+                            <a href="">클래식/공연</a>
+                            <a href="">미술/전시회</a>
+                            <a href="">웹툰</a>
+                            <a href="">인터넷방송</a>
+                        </td>
+                        <td>
+                            <a href="">서브컬쳐</a>
+                            <a href="">애니/만화</a>
+                            <a href="">2차</a>
+                            <a href="">성우</a>
+                            <a href="">BL</a>
+                            <a href="">GL</a>
+                            <a href="">로맨스판타지</a>
+                            <a href="">장르소설</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>게임</th>
+                        <th>게임</th>
+                        <th>미정</th>
+                        <th>미정</th>
+                        <th>미정</th>
+                        <th>미정</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="">-게임종합</a>
+                            <a href="">A3!</a>
+                            <a href="">BanG Dream!</a>
+                            <a href="">꿈왕국과 잠자는 100명의 왕자님</a>
+                            <a href="">노래하는 왕자님</a>
+                            <a href="">놀러와 마이홈</a>
+                            <a href="">동물의 숲</a>
+                            <a href="">드리밍</a>
+                            <a href="">러브라이브!</a>
+                            <a href="">러브앤프로듀서</a>
+                            <a href="">로스트아크</a>
+                            <a href="">리그 오브 레전드(롤)</a>
+                            <a href="">롤-T1</a>
+                            <a href="">메이플스토리</a>
+                        </td>
+                        <td>
+                            <a href="">스탠드 마이 히어로즈</a>
+                            <a href="">아이돌리쉬 세븐</a>
+                            <a href="">아이돌마스터</a>
+                            <a href="">아이츄</a>
+                            <a href="">앙상블 스타즈</a>
+                            <a href="">오버워치</a>
+                            <a href="">온에어!</a>
+                            <a href="">제5인격</a>
+                            <a href="">쿠키런</a>
+                            <a href="">페이트/그랜드 오더</a>
+                            <a href="">프린세스 커넥트!</a>
+                            <a href="">포켓몬 GO</a>
+                            <a href="">하얀고양이 프로젝트</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+               
+                </table>
+                <aside>
+                    <img src="advertisement.png">
+                </aside>
+            </section>
+        </div>
+        
+    </main>
+    <footer>
+        <div class="logo">
+            the<br>qoo
+        </div>
+        <div class="logo2">
+            theqoo<sub>.net</sub>
+        </div>
+        <div class="">
+            <div class="">더쿠소개 / 이용약관 / 개인정보처리방침 / 청소년 보호정책 / 테스트방 / 문의+신고 / 문제보고</div>
+            <div class="">문의메일 : theqooking@gmail.com</div>
+            <div class="">© 2012 - 2020 theqoo All rights reserved.</div>
+        </div>
+    </footer>
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1.html</title>
+</head>
+<body>
+    <h3>&emsp;&emsp;숫자 뒤집기</h3>
+    <input type="number" id="num">  
+    <input type="button" id="btn" value="거꾸로">
+
+    <div class="result"></div>
+
+    <script>
+        // num과 btn, result를 가져온다
+        const num = document.querySelector('#num');
+        const btn = document.querySelector('#btn');
+        const result = document.querySelector('.result');
+
+        // 함수를 선언한다
+        function reverse(){
+            // id를 이용해서 input id="num"요소를 불러온다
+            let value = num.value;
+            let ret = 0;
+            console.log(value);
+            
+            if(value == ''){
+                alert('숫자를 입력 !');
+                return;
+            }
+
+            // 값을 가져와서 순서를 거꾸로 뒤집는다
+            while(true){
+                ret += value % 10;      
+                ret *= 10;
+                value = parseInt(value / 10);       // 실수를 정수형으로
+                if(value < 10){
+                    ret += value;
+                    break;
+                }
+            }
+            // 뒤집은 값을 result 안에 innerText 형식으로 넣어준다
+            result.innerText = ret;
+        }
+        // btn의 onclick에 함수를 넣어준다
+        btn.onclick = reverse;  // 함수 뒤에 ()를 쓰면 함수를 바로 구현 
+        
+    </script>
+
+</body>
+</html>

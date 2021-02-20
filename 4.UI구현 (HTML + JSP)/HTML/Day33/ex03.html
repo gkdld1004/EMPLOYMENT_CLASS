@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        body {
+            width: 100%;
+            height: 95vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        main {
+            width: inherit;
+            border: 5px solid blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            background-color: black;
+        }
+        .img, .text {
+            position: absolute;
+            /* border: 5px solid red; */
+        }
+        .text {
+            color: white;
+            font-size: 30pt;
+            font-weight: bold;
+            z-index: 6;
+        }
+        .img {
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="img">
+            <img src="http://221.164.9.222/img/iu.jpg" width="500px">
+        </div>
+        <div class="text">
+            <p>
+                Merry Christmas !! 
+            </p>
+        </div>
+    </main>
+    
+</body>
+</html>

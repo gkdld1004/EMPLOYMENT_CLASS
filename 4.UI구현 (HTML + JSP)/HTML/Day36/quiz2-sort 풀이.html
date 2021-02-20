@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2 - 풀이.html</title>
+    <style>
+        * {
+            user-select: none;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        th, td {
+            padding: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        .filterBox {
+            margin: 20px;
+        }
+        button {
+            width: 120px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>quiz2.html(풀이) - 이름, 나이, 성별, 전화번호 (다중선택)</h1>
+    <hr>
+    <div class="filterBox">
+        <label><input type="checkbox" id="age10">10대</label>
+        <label><input type="checkbox" id="age20">20대</label>
+        <label><input type="checkbox" id="age30">30대</label>
+        <label><input type="checkbox" id="age40">40대</label>
+    </div>
+
+    <!-- 최소 10명의 데이터를 작성하세요. 다양한 연령과 성별. 데이터는 가상도 무관 -->
+    <table>
+        <thead>
+            <tr>
+                <th><button id="nameBtn">이름</button></th>
+                <th><button id="ageBtn">나이</button></th>
+                <th><button id="genderBtn">성별</button></th>
+                <th><button id="pnumBtn">전화번호</button></th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td>이지은</td><td>28</td><td>여성</td><td>010-1234-1234</td>
+            </tr>
+            <tr>
+                <td>홍진호</td><td>37</td><td>남성</td><td>010-2222-2222</td>
+            </tr>
+            <tr>
+                <td>김보람</td><td>26</td><td>여성</td><td>010-3333-3333</td>
+            </tr>
+            <tr>
+                <td>김진수</td><td>31</td><td>남성</td><td>010-4444-4444</td>
+            </tr>
+            <tr>
+                <td>원종래</td><td>36</td><td>남성</td><td>010-9128-3434</td>
+            </tr>
+            <tr>
+                <td>박진오</td><td>28</td><td>남성</td><td>010-5555-5555</td>
+            </tr>
+            <tr>
+                <td>안민주</td><td>31</td><td>남성</td><td>010-1588-1588</td>
+            </tr>
+            <tr>
+                <td>임소영</td><td>27</td><td>여성</td><td>010-1588-3366</td>
+            </tr>
+            <tr>
+                <td>박윤환</td><td>30</td><td>남성</td><td>010-1577-1577</td>
+            </tr>
+            <tr>
+                <td>김하윤</td><td>26</td><td>여성</td><td>010-1234-4321</td>
+            </tr>
+            <tr>
+                <td>김강훈</td><td>12</td><td>남성</td><td>010-1111-1111</td>
+            </tr>
+            <tr>
+                <td>배성재</td><td>43</td><td>남성</td><td>010-2323-2323</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 필터링 코드
+        const filterBox = document.querySelector('.filterBox');
+        const boxList = filterBox.querySelectorAll('input[type="checkbox"]');
+        const trList = document.querySelectorAll('tbody > tr');
+
+        const clickHandler = (event) => {
+            const boxArr = Array.from(boxList);
+            const checkedArr = boxArr.filter(box => { return box.checked });
+            const same = checkedArr.length === 0 || checkedArr.length === boxList.length;
+            
+            if(same)    {
+                trList.forEach(tr => tr.classList.remove('hidden'));
+                return;
+            }
+            
+            trList.forEach(tr => tr.classList.add('hidden'));  
+
+            for(let i = 0; i < trList.length; i++) {    
+                const tr = trList[i];
+                const trAge = tr.children[1].innerText.charAt(0);
+                for(let j = 0; j < checkedArr.length; j++) {    
+                    const boxId = checkedArr[j].id.charAt(3);
+                    if(trAge === boxId) {
+                        tr.classList.remove('hidden');
+                    }
+                }
+            }
+        }
+
+        boxList.forEach(box => box.onclick = clickHandler);
+        
+    </script>
+
+    <script>
+        // 정렬 코드
+        const btnArr = Array.from(document.querySelectorAll('thead button'));       // 버튼의 배열을 가지고 옴 
+        const trArr = Array.from(trList);       // 필터링 코드에 있는 trList를 그대로 사용, trList -> trArr
+        const ascArr = [0, 0, 0, 0];            // 각 항목이 정렬이 되어있는지 ? 오름차순 ? 내림차순 ? 
+        const btnNameArr = [];                  
+
+        btnArr.forEach(btn => btnNameArr.push(btn.innerText));
+
+        const clickHandler2 = (event) => {      // 몇번째 버튼을 클릭했을까 ? 
+            let selected = btnArr.indexOf(event.target);            // event.target이 btnArr의 몇번째 요소와 같은가
+            ascArr[selected] = ascArr[selected] != 1 ? 1 : -1;      // 1 : 오름차순, -1 : 내림차순
+            btnArr.forEach((btn, index) => btn.innerText = btnNameArr[index]);
+
+            trArr.sort((trA, trB) => {
+                let flag = trA.children[selected].innerText > trB.children[selected].innerText;
+                if(ascArr[selected] == -1) flag = !flag;
+                return flag ? 1 : -1;
+            });
+
+            tbody.innerHTML = '';
+            trArr.forEach(tr => tbody.appendChild(tr));
+
+            event.target.innerText = btnNameArr[selected] + ((ascArr[selected] == 1) ? '▲' : '▼');
+        }
+
+        btnArr.forEach(btn => btn.onclick = clickHandler2);
+    </script>
+</body>
+</html>

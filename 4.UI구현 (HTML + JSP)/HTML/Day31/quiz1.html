@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1.html</title>
+    <style>
+         a {
+            text-decoration: none;
+            color: inherit;     /* 상속받은 대로 써라 */
+        }
+        nav {
+            border-top: 2px solid lightgrey;
+            border-bottom: 2px solid lightgray;
+            display: flex;
+            flex-flow: row;
+            justify-content: center;    /* 좌우 정렬 */
+            align-content: center;
+            align-items: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        div.green {
+            color: #03C75F;
+            font-weight: bold; /* 글자 굵기 */
+            display: flex;
+            flex-flow: row;
+        }
+        div.black {
+            font-weight: bold;
+            display: flex;
+            flex-flow: row;
+        }
+        div.green div { /* div.green 내부의 div들에게 */
+            margin-left: 5px;   /* 요소 기준으로 바깥 여백 */
+            margin-right: 5px;
+        }
+        div.black div { /* div.green 내부의 div들에게 */
+            margin-left: 5px;   /* 요소 기준으로 바깥 여백 */
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        바깥요소(container)에 display: flex를 적용하면
+        내부요소(element)의 정렬을 손쉽게 할 수 있다
+     -->
+    <nav>
+        <div class="green">
+            <div class="">
+               <a href="https://mail.naver.com">메일</a> 
+            </div>
+            <div class="">카페</div>
+            <div class="">블로그</div>
+            <div class="">지식IN</div>
+            <div class="">쇼핑</div>
+            <div class="">PAY</div>
+            <div class="">TV</div>
+        </div>
+        <div class="black">
+            <div class="">
+                <a href="https://dict.naver.com">사전</a>
+            </div>
+            <div class="">뉴스</div>
+            <div class="">증권</div>
+            <div class="">부동산</div>
+            <div class="">지도</div>
+            <div class="">영화</div>
+            <div class="">VIBE</div>
+            <div class="">책</div>
+            <div class="">웹툰</div>
+        </div>
+    </nav>
+
+
+</body>
+</html>

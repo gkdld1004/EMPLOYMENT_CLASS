@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test5.html</title>
+</head>
+<body>
+    
+    <img src="1.jpg" id="mainImage" style="widows: 400px; height: 400px;">
+
+    <script>
+        var mainImage=document.getElementById("mainImage");
+        var imageArray=["1.jpg", "2.png", "3.png", "4.png"];
+        var imageIndex=0;
+
+        function changeImage() {
+            mainImage.setAttribute("src", imageArray[imageIndex]);
+            imageIndex++;
+            if(imageIndex >= imageArray.length){
+                imageIndex=0;
+            }
+        }
+        setInterval(changeImage, 2500);
+
+    </script>
+
+</body>
+</html>

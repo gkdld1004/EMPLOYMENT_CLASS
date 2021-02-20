@@ -1,0 +1,87 @@
+@charset "utf-8";   /* 이름만  css, 글자 ! 인코딩하는 습관 */
+header, nav, ul, li, div, main, aside, section, body {
+    margin: 0;
+    padding: 0;
+}
+header, nav, main {
+    width: 900px;
+    margin: auto;
+}
+header {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+}
+#menu1 {    /* header > nav > ul */
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+}
+#menu1 > li {
+    display: block;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    margin-left: 10px;      /* 중간에 margin을 줘서 li 사이 구분 */
+    margin-right: 10px;
+    transition-duration: 0.5s;
+}
+#menu1 > li:hover {
+    background-color: white;
+    color: black;
+    transition-duration: 0.5s;
+}
+.header2 {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    font-weight: bold;
+    font-size: 20pt;
+}
+.header2 > nav {
+    display: flex;
+    height: inherit;
+    justify-content: space-between;     /* 사이에 공간 */
+    align-items: center;
+}
+#menu2 {
+    display: flex;
+    list-style: none;
+}
+#menu2 > li {
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    width: 120px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 24pt;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/*
+    position: absolute;     다른 요소와 상관없는 절대위치
+                            상위 요소가 position: static이 아닐 것
+                            position: relation
+*/
+#menu2 li:hover {
+    background-color: white;
+    color: black;
+}
+#menu2 li > ol {
+    display: none;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    list-style: none;
+    padding-left: 0;
+    width: 120px;
+}
+#menu2 li:hover > ol {
+    display: block;
+}

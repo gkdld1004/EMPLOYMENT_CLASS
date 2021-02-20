@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html - ul naviggator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            overflow: hidden;
+        }
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            display: inline-flex;
+            justify-content: center;
+            cursor: pointer;
+            align-items: center;
+            width: 150px;
+            height: 70px;
+            background-color: chocolate;
+            color: white;
+            font-size: 20pt;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li>Home</li>
+        <li>Menu1</li>
+        <li>Menu2</li>
+        <li>Board</li>
+    </ul>
+
+    <script>
+        const home = document.querySelector('li');
+        home.onclick = () => {
+            alert('Home 버튼을 클릭 !!');
+        }
+    </script>
+
+</body>
+</html>

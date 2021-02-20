@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex08.html - hover</title>
+    <style>
+        .button {
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            font-size: 20pt;
+            font-weight: bold;
+            width: 150px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 10px;       /* top -> right -> bottom -> left */
+        }
+        .button:hover {     /* 마우스가 올라갔을 경우 적용되는 속성 */
+            color: black;
+            background-color: white;
+            font-size: 24pt;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="button">button1</div>
+    <div class="button">button2</div>
+    <div class="button">button3</div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        table,th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .hidden {
+            display: none; 
+        }
+    </style>
+</head>
+<body>  
+    <h1>ex03</h1>
+    <hr>
+
+    <div id="box">
+        <label><input id="boxOdd" type="checkbox">홀수</label>
+        <label><input id="boxEven" type="checkbox">짝수</label>
+    </div>
+
+    <table id="table">
+        <tr><th>1번째 글자</th></tr>
+        <tr><th>2번째 글자</th></tr>
+        <tr><th>3번째 글자</th></tr>
+        <tr><th>4번째 글자</th></tr>
+        <tr><th>5번째 글자</th></tr>
+    </table>
+
+    <script>
+        // 문서에서 요소를 가져올 때
+        // 1) id로 특정 요소 하나를 가져오기
+        const table = document.getElementById('table');
+
+        // 2) class나 태그 이름등으로 여러 요소 중 하나만 가져오기
+        const th = document.querySelector('th');
+        console.log(th.innerText);
+
+        // 3) CSS선택자를 이용하여 조건에 맞는 여러 요소를 리스트로 가져오기
+        const trList = document.querySelectorAll('tr');
+        console.log(trList);
+
+        // querySelector / querySelectorAll 은 document가 아닌 다른 요소에도 사용 가능
+        const box = document.getElementById('box');
+        const checkboxList = box.querySelectorAll('input[type="checkbox"]');
+        console.log(checkboxList);
+
+        // 기타) document.getElementsBy***
+        // Name, TagName, ClassName
+        const thList = document.getElementsByTagName('th');
+        console.log(thList);
+
+        // 동적 추가 요소
+        console.log('여기부터 동적 추가 요소 테스트 !');
+        
+        const test1 = document.getElementsByTagName('tr');      // 추가 요소 반영, 
+        const test2 = document.querySelectorAll('tr');          // 추가 요소 미반영, 복사본
+        
+        const newTr = document.createElement('tr');
+        const newTh = document.createElement('th');
+        newTh.innerText = '6번째 추가된 글자';
+        newTr.appendChild(newTh);
+        table.appendChild(newTr);
+        
+        console.log(test1);
+        console.log(test2);
+
+    </script>
+    
+</body>
+</html>

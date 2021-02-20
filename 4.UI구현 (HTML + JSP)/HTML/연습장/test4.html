@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test4.html</title>
+</head>
+<body>
+    <h3>new Image()로 이미지 로딩</h3><hr>
+    이미지를 클릭하면 다음 이미지를 보여줍니다.<p></p>
+    <img style="border:10px ridge lightgrey;" src="1.jpg"
+    width="450" height="500" onclick="change(this)">
+
+    <script>
+        var files = [
+            "2.png",
+            "3.png",
+            "4.png"];
+        var imgs = new Array();
+        for(i = 0; i < files.length; i++){
+            imgs[i] = new Image();
+            imgs[i].src = files[i];
+        }
+        var next = 1;
+        function change(obj){
+            obj.src = imgs[next].src;
+            next++;
+            next%=imgs.length;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html - javascript</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <style>
+        div.root {
+            width: 500px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30pt;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="root"></div>
+
+    <!-- 
+        javaFX에서 화면구현 - FXML
+        외형 요소 - 객체의 속성 or CSS
+        동작 (이벤트 함수) - 자바 객체의 메서드를 활용
+
+        FXML에 의해서 구성된 화면은 FXML로더에 의해서 불러지면서 자바 객체화되고
+        각각의 @FXML 자바 객체에 이벤트 리스너, 이벤트 핸들러를 추가해서 이벤트를 구성
+
+        HTML에서는 HTML태그로 요소를 만들고 
+        CSS로 외형 및 정렬, 배치를 구성하고
+        Javascript를 이용하여 동적 움직임(이벤트함수)을 만들어낸다
+     -->
+
+    <script type="text/javascript">
+        // 자바스크립트는 주석을 이렇게 씁니다 
+        /* 
+            여러줄 주석 
+        */
+
+        const root = document.querySelector('div.root');
+        // document.querySelector('문자열 형식으로 css의 선택자문법을 작성')
+        // 선택자에 맞는 요소 하나를 반환합니다 (함수)
+
+        root.innerText = 'Merry Christmas~!!';
+        // 자바스크립트에서 문자열은 홑따옴표 혹은 쌍따옴표로 표현 가능합니다
+
+        root.style.border = '5px solid black';
+        // 자바스크립트를 이용해서, HTML요소(element)의 CSS속성도 변경 가능하다
+        // 이때는 <div style="border: 5px solid black;"> 과 같이 인라인 속성을 변경한다
+
+        console.log(document);
+        // root 요소(element)를 브라우저 콘솔창에 출력
+        // 하위 요소나 속성, 함수를 볼 수 있다
+    </script>
+
+</body>
+</html>

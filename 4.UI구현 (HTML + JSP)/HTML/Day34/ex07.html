@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+</head>
+<body>
+
+    <!-- 이름과 나이, 성별을 입력받아서, 출력 (성별에 글자색을 빨강/파랑) -->
+    
+    <h1>이름, 나이, 성별을 입력하세요</h1>
+    <hr>
+
+    <div class="input">
+        <p><input type="text" id="name" placeholder="이름"></p>
+        <p><input type="number" id="age" placeholder="나이"></p>
+        <p>
+            <select id="gender">
+                <option value="">== 성별을 선택하세요 ==</option>
+                <option>남성</option>
+                <option>여성</option>
+            </select>
+        </p>
+        <p><button id="submit">제출</button></p>
+    </div>
+    <div class="output">
+        <span id="output1"></span>  <!-- 기본 속성이 inline이므로 줄바꿈 X -->
+        <span id="output2"></span>
+        <span id="output3"></span>
+    </div>
+
+    <script>
+        const name = document.querySelector('#name');           // input name
+        const age = document.querySelector('#age');             // input age
+        const gender = document.querySelector('#gender');       // select gender
+        const submitBtn = document.querySelector('#submit');    // button submit
+        const output1 = document.querySelector('#output1');     // span output1
+        const output2 = document.querySelector('#output2');     // span output2
+        const output3 = document.querySelector('#output3');     // span output3
+
+        // const test = {
+        //     'name' : name, 'age'  : age, 'gender' : gender
+        // }
+        
+        const handler = () => {
+            const emptyFlag = name.value === '' || age.value === '' || gender.value === '';
+            // console.log(emptyFlag);
+            if(emptyFlag){
+                alert('모든 값을 입력하세요');
+                if(name.value === ''){
+                    name.focus();       // focus를 이름으로
+                }
+                return;
+            }
+            
+            output1.innerText = `${name.value}님은 ${age.value}살이고, `;
+            output2.innerText = `${gender.value}`;
+            output3.innerText = '입니다';
+
+           // output2.style.color = output2.innerText === '남성' ? 'blue' : 'red';
+
+            switch(output2.innerText){
+                case '남성' : output2.style.color = 'blue'; break;
+                case '여성' : output2.style.color = 'red'; break;
+                default: output2.style.color = 'black';
+            }
+
+        };
+        
+        submitBtn.onclick = handler;
+
+    </script>
+
+</body>
+</html>

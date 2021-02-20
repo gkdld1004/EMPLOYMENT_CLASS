@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html - dropdown menu</title>
+    <style>
+        body {
+            width: 100%;
+            height: 95vh;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            padding-top: 50px;
+            overflow-x: hidden;     /* 가로축 스크롤바를 숨겨라 */
+        }
+        ul, li, ol {
+            margin: 0; padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            font-weight: bold;
+        }
+        a:hover {
+            color: white;
+            background-color: chocolate;
+            text-decoration: underline;
+        }
+        ul {
+            margin: auto;
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        li {
+            width: 120px;
+            height: 50px;
+            line-height: 50px;
+            background-color: burlywood;
+            text-align: center;
+            /*border: 1px solid black;*/
+            box-shadow: 0 0 1px 0 black;
+        }
+        ol {
+            margin-top: 1.5px;
+            list-style: none;
+            padding: 0;
+            display: none;
+        }
+        /*ul:hover ol { 전체다 */
+        li:hover ol {
+            display: block;
+        }
+        main {
+            margin: 2px auto;
+            border: 1px solid red;
+            width: 95%;
+            height: 800px;
+            display: flex;
+        }
+        aside {
+            width: 100px;
+            height: 500px;
+            margin: 2px;
+            border: 1px solid green;
+            position: fixed;    /* 위치는 스크롤바에 상관없이 고정위치 */
+            top: 65px;
+            left: 3.5%;
+        }
+        section {
+            margin: 2px auto;
+            width: 70%;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li><a href="">HOME</li>
+        <li>
+            <a href="">MENU1
+            <ol>
+                <li><a href="">SUB 1-1</a></li>
+                <li><a href="">SUB 1-2</a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="">MENU2
+            <ol>
+                <li><a href="">SUB 2-1</a></li>
+                <li><a href="">SUB 2-2</a></li>
+            </ol>
+            </li>
+        <li><a href="">MENU3</li>
+    </ul>
+
+    <main>
+        <section>
+            <h2>section</h2>
+        </section>
+    </main>
+    <aside>
+        <h2>aside</h2>
+    </aside>
+</body>
+</html>

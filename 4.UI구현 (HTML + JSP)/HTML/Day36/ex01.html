@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html - sort</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table {
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>화면에 출력된 데이터 정렬하기</h1>
+    <hr>
+    <table id="table">
+        <thead>
+            <tr><th>숫자</th></tr>
+        </thead>
+        <tbody id="tbody">
+            <tr><td>22</td></tr>
+            <tr><td>7</td></tr>
+            <tr><td>4</td></tr>
+            <tr><td>8</td></tr>
+            <tr><td>6</td></tr>
+        </tbody>
+    </table>
+
+    <div class="">
+        <button id="asc">오름차순 정렬</button>
+        <button id="desc">내림차순 정렬</button>
+    </div>
+
+    <script>
+        // 1) 자바스크립트 배열의 sort() - (그냥하면 ASCII) 
+        const arr1 = [22, 7, 4, 8, 6];
+        console.log(arr1);
+
+        arr1.sort((a, b) => {       // 배열의 서로 다른 원소 a와 b가 있으면
+            return a - b;           // 숫자의 크기가 중요한게 아니라 '양수인지 음수인지'가 중요 !
+            // return (a > b) ? 1 : -1;
+        });     //  a - b 의 결과를 반복한다 (양수인지 음수인지에 따라 결정)
+        console.log(arr1);
+
+        // 2) 객체 배열의 정렬 (객체의 특정 멤버변수를 기준으로 정렬)
+        const arr2 = [
+            { 'name' : '준석', 'age' : 27},
+            { 'name' : '승욱', 'age' : 22},
+            { 'name' : '한웅', 'age' : 25},
+            { 'name' : '민우', 'age' : 23},
+            { 'name' : '현수', 'age' : 21}
+        ]
+
+        arr2.sort((a, b) => {       // a, b 객체에 대해서
+            return a.age > b.age ? 1 : -1;
+            // return a.name > b.name ? 1 : -1;     // 각 이름을 비교하여 정렬
+        });
+        console.log(arr2);
+
+        // 3) HTML 요소의 정렬
+        const trArr = Array.from(document.querySelectorAll('tbody > tr'));      // 배열로 가져와야 소스가 있음
+        console.log(trArr);
+
+        trArr.sort((trA, trB) => {
+            // 자식 요소가 하나만 있다면 firstChild = children[0]
+            const a = +trA.firstChild.innerText;    // + : 숫자로 만들어버리는 
+            const b = +trB.firstChild.innerText;
+            return a > b ? 1 : -1;
+        });
+        
+        // 내부적으로 trArr는 정렬이 끝났지만 화면에 반영되지 않았다
+        const tbody = document.getElementById('tbody');     // tbody를 가져와서
+        tbody.innerHTML = '';                               // 내부의 모든 HTML 태그를 제거하고
+        trArr.forEach((tr) => { tbody.appendChild(tr) });   // trArr의 요소를 추가해준다
+    </script>
+      
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+    <style>
+        table,th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .hidden {
+            display: none;  /* class="hidden" 을 하면 태그는 살아있는데 보이지는 않음 */
+        }
+    </style>
+</head>
+<body>  
+    <h1>ex02 - 여러 요소 선택하기. forEach</h1>
+    <hr>
+
+    <div class="box">
+        <label><input id="boxOdd" type="checkbox">홀수</label>
+        <label><input id="boxEven" type="checkbox">짝수</label>
+    </div>
+
+    <table id="table">
+        <tr><th>1번째 글자</th></tr>
+        <tr><th>2번째 글자</th></tr>
+        <tr><th>3번째 글자</th></tr>
+        <tr><th>4번째 글자</th></tr>
+        <tr><th>5번째 글자</th></tr>
+    </table>
+
+    <script>
+        // 1) HTML에서 참조해야 할 요소를 가져오자 (입력, 출력)
+        // 입력에 관련된 요소, 내가 속성을 변경할 요소
+
+        const boxOdd = document.querySelector('#boxOdd');
+        const boxEven = document.querySelector('#boxEven');
+
+        const trList = document.querySelectorAll('#table tr');
+        // NodeList 를 반환하는 document.querySelectorAll('css selector');
+        // console.log(trList);
+
+        // console.log(boxOdd);
+        // console.log(boxEven);
+
+        // 2) 이벤트 처리 함수 준비
+        const clickHandler = (event) => {
+
+            const sameFlag = boxOdd.checked === boxEven.checked;
+            if(sameFlag){
+                // for문으로 처리하기 (1)
+                // for(let i = 0; i < trList.length; i++){
+                //     const element = trList[i];
+                //     element.className = '';
+                // }
+
+                // for(String str : string){
+                //    system.out.println(str);
+                // }
+
+                // forEach함수로 처리하기 (2)
+                trList.forEach((element) => element.className = '');
+                
+                // nodeList.forEach(callbackFn);
+                // nodeList.forEach( (args) => { function body } );
+                // button.addEventListner('click' (event) -> { console.log(event); });
+                // nodeList내부의 각 요소에게 callBackFn을 수행한다
+                // 어떤 함수를 인자로 전달하여, 지정된 형식에 따라 콜백을 수행한다
+            }
+            else if(boxOdd.checked){    
+                // 짝수는 숨기기
+                trList.forEach( (element, index) => {
+                    if(index % 2 != 0){     // index가 홀수면 숨겨라 (0부터 시작)
+                        element.className = 'hidden';
+                    }
+                } );
+                
+            }
+            else if(boxEven.checked) {  
+                // 홀수는 숨기기
+                trList.forEach( (element, index) => {
+                    element.className = index % 2 == 0 ? 'hidden' : '';
+                });
+            }
+        }
+
+        // 3) 이벤트 소스(입력에 관여하는 요소)에 함수를 연결
+        boxOdd.onclick = clickHandler;
+        boxEven.onclick = clickHandler;
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사 페이지(예제)</title>
+</head>
+<body>
+    
+    <h1>KGITBANK 설문 조사</h1>
+    <hr>
+    <p>
+        <strong>본 설문조사는 HTML태그를 연습하기 위한 용도로 작성된 페이지 입니다</strong>
+    </p>
+    <!-- 여기서부터 사용자가 입력할 수 있는 영역의 시작 -->
+    <!-- input 태그나 유사한 요소가 작동하려면, form 태그 내부에 넣는다 -->
+    <!-- submit에 키보드나 마우스 이벤트가 발생하면 action에 있는 페이지로 넘긴다 -->
+    <form action="serveyResult.html">
+
+    <fieldset>
+        <legend>1. 당신의 이름을 입력하세요</legend>
+        <p>
+            <input type="text" name="name" placeholder="이름을 입력하세요"
+                autofocus
+                autocomplete="off">
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <legend>2. 주민등록번호를 입력하세요</legend>
+        <input type="text" name="idnum1" placeholder="990102">
+        <b>-</b>
+        <input type="password" name="idnum2" placeholder="1234567"
+                size="10" maxlength="7">
+    </fieldset>
+
+    <fieldset>
+        <legend>3. 원하는 진로를 선택하세요</legend>
+        <label><input type="checkbox" name="path" value="network">네트워크</label>
+        <label><input type="checkbox" name="path" value="develop">개발</label>
+        <label><input type="checkbox" name="path" value="system">시스템</label>
+        <label><input type="checkbox" name="path" value="security">보안</label>
+    </fieldset>
+    <!-- 
+        String[] path = {"network", "develop"};
+     -->
+
+    <fieldset>
+        <legend>4. 구사 가능한 주력 언어를 하나만 고르세요</legend>
+        <label><input type="radio" name="lang" value="c">C언어</label>
+        <label><input type="radio" name="lang" value="python">파이썬</label>
+        <label><input type="radio" name="lang" value="java">자바</label>
+        <label><input type="radio" name="lang" value="etc">기타</label>
+        <label><input type="radio" name="lang" value="none">없음</label>
+    </fieldset>
+    <!-- 
+        String lang = null;
+        switch(userSelect){
+            case 1: land = "c"; break;
+            case 2: land = "python"; break;
+            case 3: land = "java"; break;
+        }
+     -->
+
+    <fieldset>
+        <legend>5. 성별을 선택하세요</legend>
+        <select name="gender">
+            <option>==성별==</option>
+            <option value="men">남성</option>
+            <option value="women">여성</option>
+        </select>
+    </fieldset>
+
+    <fieldset>
+        <legend>6. 건의사항이나 기타 하고 싶은 말이 있으면 작성하세요</legend>
+        <textarea name="comment"
+                cols="40" rows="5"
+                style="resize: none"
+                placeholder="바른말 고운말을 사용합시다"></textarea>
+    </fieldset>
+
+    <center>
+    <p>설문에 응해주셔서 감사합니다</p>
+    <input type="submit" value="제출" />
+    </center>
+
+    </form>
+</body>
+</html>

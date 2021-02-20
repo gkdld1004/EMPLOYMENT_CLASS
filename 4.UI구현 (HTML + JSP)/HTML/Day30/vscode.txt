@@ -1,0 +1,22 @@
+< Visual Studio Code >
+
+ctrl + , : 설정
+
+    - zoom 검색, mouse zoom, window zoom
+    - files association : 확장자에 따른 문법을 지정하는 설정
+
+ctrl + b : 좌측 탐색기 창을 열기/숨기기
+ctrl + j : cmd or powershell 을 열기/숨기기
+ctrl + shift + x : 마켓플레이스
+F11 : 전체화면
+
+메뉴 - 파일 - 자동 저장에 체크하면 매번 Ctrl + s 로 저장할 필요가 없다
+
+확장 프로그램
+
+        - Korean Language Pack
+        - Live Server
+        - open in brower(2.0.0)
+        - javascript (ES6) code snippet
+        - beauty
+        - Power Mode : 재미있는 효과ㅋ

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html - flex</title>
+    <style>
+        /*
+            CSS 선택자
+
+            태그    { } : 여러 태그에 공통적으로 적용
+            .클래스 { } : 여럿도 가능하고 하나만 있을 수도 있다
+            #id     { } : id는 고유 식별값이므로 하나만 있어야 한다 (중복되면 안됨)
+
+        */
+        div {
+            border: 1px solid black
+        }
+        .inner {
+            width: 100px; height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid red;
+        }
+        #A {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>display: flex</h1>
+    <hr>
+
+    <div id="A">
+        <div class="inner">a</div>
+        <div class="inner">b</div>
+        <div class="inner">c</div>
+    </div>
+
+</body>
+</html>

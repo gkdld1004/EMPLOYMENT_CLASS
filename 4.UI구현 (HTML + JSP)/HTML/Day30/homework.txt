@@ -1,0 +1,15 @@
+아래 태그를 w3school 이나 mdn에서 찾아보세요
+
+html
+head
+body
+form, input, label, select, textarea
+ul, ol, li
+fieldset, legend
+img, video
+table, tr, td, th
+a
+button
+h1 ~ h6
+p, br, hr, blockquote
+div, span

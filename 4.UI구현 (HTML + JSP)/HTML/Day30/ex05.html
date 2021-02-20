@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>table</h1>
+    <hr>
+    <p>table : 표를 생성한다</p>
+    <p>tr : table row, 표 안의 한 줄을 생성한다</p>
+    <p>td : table data, 줄 안에서 데이터를 입력할 수 있는 칸(cell)을 생성한다</p>
+    <p>th : table headline, td와 같으나 제목에 해당하므로, 굵게, 가운데 정렬을 적용한다</p>
+
+    <table border="1" cellspacing="0" cellpadding="10" align="center">
+        <tr>
+            <th colspan="4">멤버 목록</th>
+            <!-- colspan : 셀 하나가 가로 3칸 만큼의 공간을 차지하도록 확장 -->
+        </tr>
+        <tr height="70px">
+            <th width="150px">이름</th>
+            <th width="150px">전화번호</th>
+            <th width="150px">성별</th>
+            <th rowspan="3">
+                <img src="http://221.164.9.222/img/iu.jpg"
+                        width="120px">
+            </th>
+        </tr>
+        <tr>
+            <td>이지은</td>
+            <td>010-1234-1234</td>
+            <td>여성</td>
+        </tr>
+        <tr>
+            <td>홍진호</td>
+            <td>010-2222-2222</td>
+            <td>남성</td>
+        </tr>
+    </table>
+
+</body>
+</html>

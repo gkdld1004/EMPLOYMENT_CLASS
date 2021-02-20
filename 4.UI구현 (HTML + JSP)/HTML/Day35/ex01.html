@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+    <style>
+        table,th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .hidden {
+            display: none;  /* class="hidden" 을 하면 태그는 살아있는데 보이지는 않음 */
+        }
+    </style>
+</head>
+<body>  
+    <h1>ex01 - 요소 숨기거나 나타내기</h1>
+    <hr>
+    
+    <div class="box">
+        <label><input id="boxOdd" type="checkbox">홀수</label>
+        <label><input id="boxEven" type="checkbox">짝수</label>
+    </div>
+
+    <table id="table">
+        <tr id="tr1"><th>1번째 글자</th></tr>
+        <tr id="tr2"><th>2번째 글자</th></tr>
+        <tr id="tr3"><th>3번째 글자</th></tr>
+        <tr id="tr4"><th>4번째 글자</th></tr>
+        <tr id="tr5"><th>5번째 글자</th></tr>
+    </table>
+
+    <script>
+        // 1) HTML에서 참조해야 할 요소를 가져오자 (입력, 출력)
+        // 입력에 관련된 요소, 내가 속성을 변경할 요소
+
+        // 입력관련
+        const boxOdd = document.querySelector('#boxOdd');
+        const boxEven = document.querySelector('#boxEven');
+
+        // 출력관련
+        const tr1 = document.querySelector('#tr1');
+        const tr2 = document.querySelector('#tr2');
+        const tr3 = document.querySelector('#tr3');
+        const tr4 = document.querySelector('#tr4');
+        const tr5 = document.querySelector('#tr5');
+
+        // console.log(boxOdd);
+        // console.log(boxEven);
+
+        // 2) 이벤트 처리 함수 준비
+        const clickHandler = (event) => {
+            console.log(event.type);            // 어떤 이벤트 타입인가
+            console.log(event.button);          // 어떤 버튼으로 클릭되었는가
+            console.log(event.target);          // 무엇을 클릭했는가
+            console.log(event.target.checked);  // 대상이 체크되어 있는가
+
+            // 경우의 수 
+            // 0 0 : 다 보여주기
+            // 0 1 : 짝수만 보여주기 (홀수는 숨기기)
+            // 1 0 : 홀수만 보여주기 (짝수는 숨기기)
+            // 1 1 : 다 보여주기
+
+            const sameFlag = boxOdd.checked === boxEven.checked;
+            if(sameFlag){
+                // 모두 보여주기 (tr의 클래스 이름에 hidden이 없도록 만들기)
+                tr1.className = '';     // className은 문자열
+                tr2.className = '';     // 문자열에 빈 문자열을 대입하면 클래스 값이 사라진다
+                tr3.className = '';
+                tr4.className = '';
+                tr5.className = '';
+                
+            }
+            else if(boxOdd.checked){    // tr1.classList.add('hidden')
+                // 짝수는 숨기기
+                tr2.className = 'hidden';
+                tr4.className = 'hidden';
+                
+            }
+            else if(boxEven.checked) {  // tr2.classList.remove('hidden')
+                // 홀수는 숨기기
+                tr1.className = 'hidden';
+                tr3.className = 'hidden';
+                tr5.className = 'hidden';
+            }
+
+        }
+
+        // 3) 이벤트 소스(입력에 관여하는 요소)에 함수를 연결
+        boxOdd.onclick = clickHandler;
+        boxEven.onclick = clickHandler;
+    </script>
+</body>
+</html>

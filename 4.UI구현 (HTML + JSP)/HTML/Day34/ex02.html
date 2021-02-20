@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+</head>
+<body>
+
+    <script>
+        // 변수 선언
+        var a;                  // variable, 잘 사용하지 않는 추세 
+        let b = 1;              // 지역변수, 변경가능한 값
+        const c = 'Hello';      // 지역변수, 상수, 초기화 이후 대입이 불가능 (참조주소)
+
+        d = 3;
+        d += 1;
+        console.log(a, b, c, d);
+
+        arr = [a, b, c, d];     // Array, 변수 선언시 자료형을 명시하지 않음
+
+        for(let i = 0; i < arr.length; i++){
+            console.log(i, ' : ', arr[i]);      // 브라우저 console창에 내용을 출력하는 출력문 
+        }
+
+        map = {
+            'a' : 'Apple',
+            'b' : 'Banana',
+            'c' : 'Carpet',
+        };
+
+        // undefined : 자바스크립트에서 생성된 변수
+        undefined = 'Hello';            // undefined는 예약어이므로, 대입해서 사용하지 말자
+        document.writeln(map['d']);     
+
+        if(map['d'] == undefined) {
+            // alert('undefined');
+        }
+        // ==  : 값이 일치하는지 검사              <->      !=
+        // === : 값과 자료형이 일치하는지 검사      <->      !==
+
+        const var1 = 1;
+        const var2 = '1';
+
+        if(var1 == var2){
+            alert('var1 == var2');
+        }
+        if(var1 === var2){      
+            alert('var1 === var2');
+        }
+
+        /*
+            자바스크립트 자료형
+            기본형)
+            number : 정수 혹은 실수
+            string : 문자열 
+            boolean : true / false
+            null/undefined : 값이 없음/정의되지 않음
+
+            참조형)
+            array : Index로 값을 참조하는 데이터의 집합
+            object : 객체, 객체멤버에 .연산자로 접근
+            function : 특정 기능을 가지는 코드의 집합(함수)
+
+            !! 자바스크립트에서는 함수도 객체로 취급 (변수에 함수를 저장할 수 있다)
+
+        */
+
+    </script>
+
+</body>
+</html>

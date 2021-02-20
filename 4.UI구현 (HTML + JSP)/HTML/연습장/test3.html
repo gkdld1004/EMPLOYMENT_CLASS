@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test3.html</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        const sliderItems = document.querySelector(".sliderItem");
+        const firstSlide = sliderItems[0];
+        firstSlide.classList.add('show');
+        let i = 0;
+
+        const slide = () => {
+            const  showSlide = document.querySelector('show');
+
+            if(showSlide){
+                let next = showSlide.nextElementSibling;
+                if(next == null){
+                    next = firstSlide;
+                }
+                showSlide.classLIst.remove('show');
+                next.classList.add('show');
+            }
+        }
+        setInterval(slide, 2500);
+
+    </script>
+
+</body>
+</html>

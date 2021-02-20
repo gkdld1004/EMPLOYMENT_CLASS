@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html - String</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        const text = '거미는 전 세계에서 유일하게 버그찾기를 즐기는 웹 개발자 입니다';
+        document.writeln(text.indexOf('는'), '<br>');
+        document.writeln(text.lastIndexOf('는'), '<br>');
+        document.writeln(text.indexOf(' '), '<br>');
+        document.writeln(text.indexOf(' ', 6), '<br>');     // indexOf(' ', □) : □ 다음부터 찾는다
+        document.writeln(text.indexOf('버그'), '<br><br>');
+
+        document.writeln(text.charAt(4), '<br>');
+        document.writeln(text.slice(6, 10), '<br>');        // slice(start, end) : start ~ end, end는 포함하지 않는다
+        document.writeln(text.substring(6, 10), '<br>');
+        document.writeln(text.substr(11, 4), '<br>');       // substr(from, length) : from ~ length
+        document.writeln(text.substr(11, 6), '<br>');
+        document.writeln(text.split(' '), '<br><br>');
+
+        const arr = text.split(' ');
+        console.log(arr);
+        console.log(arr.length);
+        console.log(arr[5]);
+
+        for(let i = 0; i < arr.length; i++){
+            document.writeln(`${i} : ${arr[i]}`, '<br>');
+        }
+
+        document.writeln('<br>');
+
+        for(i in arr){        // arr 안에 있는 요소를 각각 str 이라고 할 때
+                                // arr 안에 있는 각 요소 str에 대해서
+            document.writeln(arr[i], '<br>');
+        }
+
+    </script>
+
+</body>
+</html>
