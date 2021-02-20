@@ -1,0 +1,55 @@
+변수, 자료형
+primitive, Reference(Array Type, Class Type)
+
+boolean, byte, char, short, int, long, float, double, String
+
+연산자(산술, 대입, 단항증감, 논리, 삼항, instaceof)
+제어문(if, switch ~ case, while, for, break, continue)
+함수(호출과 정의, 인자값과 매개변수, 반환형과 return, 오버로딩)
+배열(같은 자료형, 참조형, 가변배열)
+클래스
+구성요소(필드, 메서드, 생성자, 접근제한자)
+객체
+상속(오버라이딩, equals(), Handler)
+
+final => 메서드에 붙이면 오버라이딩X
+
+익명클래스 -> 패키지 - show in - System Explorer - bin
+
+다형성
+업/다운캐스팅
+	*업 캐스팅 (Up Casting)
+
+부모가 자식객체를 받아주는 것을 업 캐스팅이라 부름
+
+상속 관계에 있는 부모, 자식 클래스 간에 부모타입의 참조형 변수가 모든 자식 타입의 객체 주소를 받을 수 있음
+
+?
+
+Car c = new Sonata();
+
+// Sonata클래스형에서 Car클래스형으로 바뀜
+
+// new Sonata 객체에 Car도 포함이 되어있는것은 맞지만,
+
+객체를 담은 레퍼런스 변수 c의 자료형이 Car이기 때문에 Car만 볼 수 있음 (Sonata 확인 불가)
+
+?
+
+*다운 캐스팅(Down Casting)
+
+자식객체까지 모두 보고싶으면 내가 보고자하는 자식 객체타입으로 형변환이 이루어져야 함
+
+자동으로 처리되지 않기 때문에 반드시 후손 타입 명시해서 형 변환
+
+?
+
+Car c = new Sonata(); // 자식 객체는 c에 담겼지만 Car만 볼 수 있음
+
+((Sonata)c).moveSonata(); // 다운 캐스팅 (형변환)
+
+클래스 간의 형변환은 반드시 상속관계에 있는 클래스끼리만 가능
+
+생김새가 자식을 감싼 부모같음..
+[출처] 슬슬 정신을 놓기 시작하는데.. #자바 (다형성, 추상클래스, 인터페이스)|작성자 스프링
+오버라이딩 

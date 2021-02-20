@@ -1,0 +1,2 @@
+taskkill /f /im javaw.exe
+	: 지금 이클립스에서 실행하는 자바프로그램을 다 끄기

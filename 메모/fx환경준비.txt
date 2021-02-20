@@ -1,0 +1,51 @@
+1. JAVA_HOME 환경변수 설정
+
+C:\Program Files\Java\jdk1.8.0_***
+
+내 PC 우클릭 - 속성 - 고급 시스템 설정 - 환경 변수
+
+사용자 변수에 JAVA_HOME이 있으면 삭제
+시스템 변수에 JAVA_HOME을 찾아서 값을 위 경로
+
+==========================================
+이름 : JAVA_HOME
+값  : C:\Program Files\Java\jdk1.8.0_***
+==========================================
+
+2. Path 에 등록
+
+시스템 변수 Path 편집
+%JAVA_HOME%\bin 을 추가
+그 외에 자바 관련 환경 변수는 가급적 삭제
+
+* Path 자체는 삭제하면 윈도우가 정상작동 안할 수 있으니 주의
+
+3. C:\Program Files\Java\jre1.8.0_***\lib\ext\jfxrt.jar
+ 파일이 있는지 확인하기
+
+4. 신규 자바 프로젝트를 생성
+
+프로젝트 우클릭 - 속성
+Java Build Path - Libraries
+
+JRE System Library 펼쳐서 열기
+Access rules: ~~~ - Edit
+
+Add
+Resolution : Accessible
+Rule Pattern : javafx/**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
