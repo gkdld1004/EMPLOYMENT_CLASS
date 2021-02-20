@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans.xsd">
+		 
+	<bean id="typeTest" class="typeTest.PrimitiveType">
+		<property name="bo" value="true" />
+		<property name="by" value="127" />
+		<property name="sh" value="32767" />
+		<property name="ch" value="가" />
+		<property name="num" value="1234" />
+		<property name="ln" value="42000000" />
+		<property name="fl" value="3.14" />
+		<property name="db" value="12.78" />
+		<property name="str" value="Hello" />
+	</bean>
+		 
+	<bean id="t2" class="typeTest.ListType">
+		<property name="accounts">
+			<list>
+				<value>iu930516</value>
+				<value>test</value>
+				<value>itbank</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="t3" class="typeTest.MapType">
+		<property name="map">
+			<map>
+				<entry key="apple" value="사과"/>
+				<entry key="banana" value="바나나"/>
+				<entry key="candy" value="사탕"/>
+				<entry key="danger" value="단 거"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
